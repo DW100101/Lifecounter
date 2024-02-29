@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MTG Life Counter</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <!-- 
+    TODO LIST
+    I want to add a space above each counter for a player name;
+    each counter has an up and down button, with life total in middle ;
+    make the life up button green when hovered over, and down button red ;
+    
+    ADVANCED FEATURES
+    *when life >=0 show death message for player;
+    *maybe have a press and hold option to go +- by 10 ;
+    *a way to ask how many players on reset, then have that many counters come up, 1-4; 
+    *A change color option for each counter ;
+    *Seperate commander damage tracker, option for other tracking element;
+-->
+
+  <body>
+    <div id="title">
+      <h1 id="header">
+        <strong><u>MTG LIFE COUNTER</u></strong>
+      </h1>
+    </div>
+
+    <div id="counters-container">
+      <div id="counters" class="centered">
+        <div class="counter">
+          <div class="player-name">
+            <label for="p1-name">Name: </label>
+            <input
+              type="text"
+              class="player-name-input"
+              name="p1-name"
+              placeholder="Enter Name"
+            />
+          </div>
+          <button class="up-button" id="up" onclick="lifeUp(this)">▲</button>
+          <div class="life">
+            <span class="result-num">40</span>
+          </div>
+          <button class="down-button" id="down" onclick="lifeDown(this)">
+            ▼
+          </button>
+          <select
+            class="background-color-select"
+            onchange="changeBackgroundColor(this)"
+          >
+            <option disabled selected>Select Background Color</option>
+
+            <option value="gradient1" class="gradient-option">Azorius</option>
+            <option value="gradient2" class="gradient-option">Boros</option>
+            <option value="gradient3" class="gradient-option">Dimir</option>
+            <option value="gradient4" class="gradient-option">Golgari</option>
+            <option value="gradient5" class="gradient-option">Gruul</option>
+            <option value="gradient6" class="gradient-option">Izzet</option>
+            <option value="gradient7" class="gradient-option">Orzhov</option>
+            <option value="gradient8" class="gradient-option">Rakdos</option>
+            <option value="gradient9" class="gradient-option">Selesnya</option>
+            <option value="gradient10" class="gradient-option">Simic</option>
+            <option value="red">Red</option>
+            <option value="blue">Blue</option>
+            <option value="green">Green</option>
+            <option value="lightYellow">White</option>
+            <option value="#444444">Black</option>
+            <option value="purple">Purple</option>
+            <option value="yellow">Yellow</option>
+            <option value="orange">Orange</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div id="options-buttons">
+      <div id="reset-all">
+        <button id="reset-button" onclick="reset()">Reset All</button>
+      </div>
+      <button id="add-player" onclick="addPlayers()">Add a Player</button>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
